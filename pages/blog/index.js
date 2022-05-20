@@ -79,7 +79,7 @@ export default function Example({ own_posts }) {
                         My personal blog about
                       </span>
                       <span className="block text-red-600">
-                        Coding, Data science & DevOps
+                        Coding, Data Science & DevOps
                       </span>
                     </span>
                   </h1>
@@ -203,15 +203,6 @@ export default function Example({ own_posts }) {
             </main>
           </div>
         </div>
-        {/* <div className="text-center">
-          <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
-            From the blog
-          </h2>
-          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
-            libero labore natus atque, ducimus sed.
-          </p>
-        </div> */}
         <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
           {own_posts.map((post) => (
             <BlogpostCard post={post} key="1" />
@@ -225,7 +216,7 @@ export default function Example({ own_posts }) {
 export async function getStaticProps() {
   const files = fs.readdirSync(path.join("blog-posts"));
   const posts = files.map((filename) => {
-    const slug = filename.replace(".md");
+    const slug = filename.replace(".md", "");
     const markdownWithMeta = fs.readFileSync(
       path.join("blog-posts", filename),
       "utf-8"

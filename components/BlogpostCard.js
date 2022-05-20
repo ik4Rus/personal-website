@@ -1,10 +1,6 @@
 import React from "react";
 import Link from "next/link";
 function BlogpostCard({ post }) {
-  console.log(post["slug"]);
-
-  console.log("blog/" + post.slug);
-
   return (
     <div
       key={post.slug}

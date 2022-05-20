@@ -33,11 +33,11 @@ export default function Example() {
                   />
                   <NavbarReactiveElement
                     item={{ name: "experience", href: "/experience" }}
-                    exact={true}
+                    exact={false}
                   />
                   <NavbarReactiveElement
                     item={{ name: "blog", href: "/blog" }}
-                    exact={true}
+                    exact={false}
                   />
                 </div>
               </div>
