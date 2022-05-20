@@ -15,11 +15,11 @@ function BlogPost({ frontmatter, slug, content }) {
           <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
             <div className="absolute inset-0">
               <img
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover blur-sm"
                 src={frontmatter.cover_image}
                 alt="Cover image"
               />
-              <div className="absolute inset-0 bg-gray-700 mix-blend-multiply" />
+              <div className="absolute inset-0 bg-gray-500 mix-blend-multiply" />
             </div>
             <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
               <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
@@ -42,7 +42,7 @@ function BlogPost({ frontmatter, slug, content }) {
           </div>
         </div>
       </div>
-      <div className="m-8 mx-auto prose max-w-4xl">
+      <div className="m-8 mx-auto prose dark:prose-invert max-w-4xl">
         <ReactMarkdown components={CodeBlock}>{content}</ReactMarkdown>
       </div>
     </>
@@ -70,7 +70,7 @@ export async function getStaticProps({ params: { slug } }) {
     "utf-8"
   );
   let { data: frontmatter, content } = matter(markdownWithMeta);
-  content = content.replace("(/public/", "(/");
+  content = content.replaceAll("(/public/", "(/");
   return {
     props: { frontmatter, slug, content },
   };
