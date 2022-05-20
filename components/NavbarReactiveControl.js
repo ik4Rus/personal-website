@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { Disclosure } from "@headlessui/react";
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
+import { useTheme } from "next-themes";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -11,6 +12,7 @@ function classNames(...classes) {
 
 export default function NavbarReactiveElement({ item, exact, etype = "tab" }) {
   const { pathname } = useRouter();
+
   const isActive = exact
     ? pathname === item.href
     : pathname.startsWith(item.href);
@@ -21,9 +23,9 @@ export default function NavbarReactiveElement({ item, exact, etype = "tab" }) {
           key={item.name}
           className={classNames(
             isActive
-              ? "border-red-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-              : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex",
-            "items-center px-1 pt-1 border-b-2 text-sm font-medium"
+              ? "border-red-500 text-gray-900  dark:bg-gray-800 dark:text-white dark:border-red"
+              : "border-transparent text-gray-500 hover:border-gray-300 mhover:text-gray-700 ",
+            "inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium "
           )}
           aria-current={item.current ? "page" : undefined}
         >
