@@ -15,17 +15,6 @@ const COLORDETAILS = {
 };
 
 export default function BlogpostBadges({ key, badgetype, size = "small" }) {
-  console.log(
-    `inline-flex items-center ${
-      size == "small" ? "px-2.5" : "px-5"
-    } py-0.5 rounded-full ${
-      size == "small" ? "text-xs" : "text-base"
-    } font-medium bg-${
-      BADGECOLORS[badgetype] ? BADGECOLORS[badgetype] : "gray"
-    }-100 text-${
-      BADGECOLORS[badgetype] ? BADGECOLORS[badgetype] : "gray"
-    }-800 m-1`
-  );
   const color_bg = BADGECOLORS[badgetype]
     ? COLORDETAILS[BADGECOLORS[badgetype]]["badge"]
     : COLORDETAILS["gray"]["badge"];
@@ -33,7 +22,6 @@ export default function BlogpostBadges({ key, badgetype, size = "small" }) {
     ? COLORDETAILS[BADGECOLORS[badgetype]]["text"]
     : COLORDETAILS["gray"]["text"];
 
-  console.log(COLORDETAILS[BADGECOLORS[badgetype]]);
   return (
     <span
       key={key}
