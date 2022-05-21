@@ -4,6 +4,7 @@ import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import { Link } from "next/link";
+import BlogpostBadges from "../../components/BlogpostBadges";
 
 import CodeBlock from "../../components/CodeBlock";
 
@@ -24,9 +25,15 @@ function BlogPost({ frontmatter, slug, content }) {
             <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
               <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
                 <span className="block text-white">{frontmatter.title}</span>
-                <span className="block text-red-600 text-3xl sm:text-4xl lg:text-5xl mt-4">
-                  2022-06-21
-                </span>
+                <p>
+                  {frontmatter.badges.split("|").map((singlebadge) => (
+                    <BlogpostBadges
+                      key={`${singlebadge}-${slug}`}
+                      badgetype={singlebadge}
+                      size="medium"
+                    />
+                  ))}
+                </p>
               </h1>
               <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
                 <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-1 sm:gap-5">

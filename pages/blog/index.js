@@ -205,7 +205,7 @@ export default function Example({ own_posts }) {
         </div>
         <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
           {own_posts.map((post) => (
-            <BlogpostCard post={post} key="1" />
+            <BlogpostCard post={post} key={post.slug} />
           ))}
         </div>
       </div>

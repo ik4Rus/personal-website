@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import BlogpostBadges from "../components/BlogpostBadges";
 function BlogpostCard({ post }) {
   return (
     <div
@@ -15,10 +16,13 @@ function BlogpostCard({ post }) {
       </div>
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
         <div className="flex-1">
-          <p className="text-sm font-medium text-indigo-600">
-            <a href="#" className="hover:underline">
-              to be filled
-            </a>
+          <p>
+            {post.frontmatter.badges.split("|").map((singlebadge) => (
+              <BlogpostBadges
+                key={`${singlebadge}-${post.slug}`}
+                badgetype={singlebadge}
+              />
+            ))}
           </p>
           <Link href={`blog/${post.slug}`}>
             <a className="block mt-2">

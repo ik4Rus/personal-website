@@ -2,6 +2,7 @@
 title: "Programmatic AWS Lambda warmers with EventBridge and boto3 in Python"
 date: "March 5, 2021"
 excerpt: "Introduction how to work around the cold start issue of Lambda using AWS EventBridge and how to automate this with boto3 in Python."
+badges: AWS|Lambda|boto3|EventBridge|Python
 cover_image: "/images/blog/lambda_warmer/hero_lambda_warmer.png"
 ---
 
