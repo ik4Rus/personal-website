@@ -5,6 +5,7 @@ import React from "react";
 import BlogpostCard from "../../components/BlogpostCard";
 
 export default function Example({ own_posts }) {
+  console.log(own_posts);
   return (
     <div className="">
       <div className="relative max-w-7xl mx-auto">
