@@ -1,11 +1,28 @@
+import React, { useState, useEffect } from "react";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import React from "react";
 import BlogpostCard from "../../components/BlogpostCard";
+import BlogpostBadges from "../../components/BlogpostBadges";
+import Select from "react-select";
 
 export default function Example({ own_posts }) {
-  console.log(own_posts);
+  const unique_badges = [
+    ...new Set(
+      [].concat.apply(
+        [],
+        own_posts.map((post) => post.badges)
+      )
+    ),
+  ];
+  const badge_options = unique_badges.map((badge) => ({
+    value: badge,
+    label: badge,
+  }));
+  const [selectedBadge, setSelectedBadge] = useState(null);
+  useEffect(() => {
+    console.log(selectedBadge, "- Has changed");
+  }, [selectedBadge]);
   return (
     <div className="">
       <div className="relative max-w-7xl mx-auto">
@@ -144,9 +161,25 @@ export default function Example({ own_posts }) {
             </main>
           </div>
         </div>
+        <div>
+          <div>
+            <p className="text-gray-400 text-center">Select category</p>
+            <div className="flex justify-center">
+              <Select
+                className=""
+                closeMenuOnSelect={false}
+                isMulti
+                options={badge_options}
+                defaultValue={selectedBadge}
+                onChange={setSelectedBadge}
+              />
+            </div>
+          </div>
+        </div>
+
         <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
           {own_posts.map((post) => (
-            <BlogpostCard post={post} key={post.slug} />
+            <BlogpostCard post={post} key={post.slug} badges={post.badges} />
           ))}
         </div>
       </div>
@@ -164,8 +197,9 @@ export async function getStaticProps() {
     );
 
     const { data: frontmatter } = matter(markdownWithMeta);
+    const badges = frontmatter["badges"].split("|");
 
-    return { slug, frontmatter };
+    return { slug, frontmatter, badges };
   });
 
   return { props: { own_posts: posts } };

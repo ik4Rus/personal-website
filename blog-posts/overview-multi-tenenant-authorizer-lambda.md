@@ -2,7 +2,7 @@
 title: "Multi-tenancy with AWS Lambda Authorizer, API Gateway and Python (overview)"
 date: "March 5, 2021"
 excerpt: "Overview of the implementation of multi-tenant authentication and authorization using a custom Lambda Authorizer."
-badges: AWS|Lambda|boto3|EventBridge|Python
+badges: AWS|API Gateway|Lambda|Cognito|Python
 cover_image: "/images/blog/test.png"
 ---
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import BlogpostBadges from "../components/BlogpostBadges";
-function BlogpostCard({ post }) {
+function BlogpostCard({ post, badges }) {
   return (
     <div
       key={post.slug}
@@ -17,7 +17,7 @@ function BlogpostCard({ post }) {
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
         <div className="flex-1">
           <p>
-            {post.frontmatter.badges.split("|").map((singlebadge) => (
+            {badges.map((singlebadge) => (
               <BlogpostBadges
                 key={`${singlebadge}-${post.slug}`}
                 badgetype={singlebadge}

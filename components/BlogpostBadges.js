@@ -3,6 +3,8 @@ import React from "react";
 const BADGECOLORS = {
   AWS: "red",
   Lambda: "red",
+  "API Gateway": "red",
+  Cognito: "red",
   EventBridge: "red",
   Python: "yellow",
   boto3: "yellow",
