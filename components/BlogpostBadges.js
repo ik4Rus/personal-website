@@ -31,7 +31,7 @@ export default function BlogpostBadges({ key, badgetype, size = "small" }) {
         size == "small" ? "px-2.5" : "px-5"
       } py-0.5 rounded-full ${
         size == "small" ? "text-xs" : "text-base"
-      } font-medium1 m-1 shadow-sm text-gray-800`}
+      } font-medium  tracking-normal m-1 shadow-sm text-gray-800`}
       style={{ backgroundColor: color_bg, color: text_col }}
     >
       {badgetype}
