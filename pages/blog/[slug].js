@@ -37,13 +37,14 @@ function BlogPost({ frontmatter, slug, content }) {
               </h1>
               <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
                 <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-1 sm:gap-5">
-                  <Link href="/blog">
-                    <a className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-red-700 bg-white hover:bg-indigo-50 sm:px-8">
-                      Back to blog
-                    </a>
-                  </Link>
+                  {/* <Link href="/blog"> */}
+                  <a className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-red-700 bg-white hover:bg-indigo-50 sm:px-8">
+                    Back to blog
+                  </a>
+                  {/* </Link> */}
                 </div>
-              </div>
+              </div>{" "}
+              *
             </div>
           </div>
         </div>
